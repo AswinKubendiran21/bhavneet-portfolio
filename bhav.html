@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavneet Singh · Portfolio</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #081b29;
+            color: #ededed;
+            scroll-behavior: smooth;
+        }
+
+        /* ----- HEADER / NAVBAR ----- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 9%;
+            background: #051129;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.6);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo span { color: #0ef; }
+
+        .navbar a {
+            display: inline-block;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 30px;
+            transition: 0.3s;
+            position: relative;
+        }
+        .navbar a:hover {
+            color: #0ef;
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #0ef;
+            transition: 0.3s;
+        }
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* ----- HOME SECTION ----- */
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            min-height: 100vh;
+            padding: 120px 9% 60px;
+            gap: 2rem;
+        }
+        .home-content {
+            flex: 1 1 500px;
+            max-width: 650px;
+        }
+        .home-content h3 {
+            font-size: 28px;
+            font-weight: 500;
+        }
+        .home-content h1 {
+            font-size: 54px;
+            font-weight: 700;
+            margin: 8px 0 12px;
+            color: #0ef;
+            line-height: 1.2;
+        }
+        .home-content h3 span {
+            color: #0ef;
+        }
+        .home-content p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 20px 0 30px;
+            color: #cfd8e6;
+        }
+        .home-sci a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 2px solid #0ef;
+            border-radius: 50%;
+            font-size: 22px;
+            color: #0ef;
+            text-decoration: none;
+            margin: 0 12px 20px 0;
+            transition: 0.4s;
+        }
+        .home-sci a:hover {
+            background: #0ef;
+            color: #081b29;
+            box-shadow: 0 0 20px #0ef;
+        }
+        .btn-box {
+            display: inline-block;
+            padding: 13px 32px;
+            background: #0ef;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #081b29;
+            text-decoration: none;
+            box-shadow: 0 0 10px #0ef;
+            transition: 0.3s;
+            margin-right: 18px;
+            margin-top: 8px;
+        }
+        .btn-box:hover {
+            box-shadow: 0 0 25px #0ef, 0 0 50px #0ef;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #0ef;
+            border: 2px solid #0ef;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: #0ef;
+            color: #081b29;
+            box-shadow: 0 0 25px #0ef;
+        }
+        .home-img img {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+            border: 4px solid #0ef;
+        }
+
+        /* ----- SECTION TITLES ----- */
+        .section-title {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        .section-title span {
+            color: #0ef;
+        }
+        .section-sub {
+            text-align: center;
+            color: #b0c4de;
+            margin-bottom: 48px;
+            font-size: 18px;
+        }
+
+        /* ----- ABOUT ----- */
+        .about {
+            padding: 60px 9% 80px;
+            background: #0b1f2f;
+        }
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .about-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            color: #d4e0f0;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 30px;
+        }
+        .about-card {
+            background: #112233;
+            padding: 24px 28px;
+            border-radius: 20px;
+            border-left: 4px solid #0ef;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .about-card h4 {
+            font-size: 20px;
+            color: #0ef;
+            margin-bottom: 8px;
+        }
+        .about-card p {
+            font-size: 15px;
+            color: #c0d0e0;
+            margin-bottom: 0;
+        }
+
+        /* ----- SKILLS (minimal) ----- */
+        .skills-section {
+            padding: 60px 9% 80px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .skill-card {
+            background: #112233;
+            border-radius: 20px;
+            padding: 26px 18px;
+            text-align: center;
+            border: 1px solid #1e3a5f;
+            transition: 0.3s;
+        }
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: #0ef;
+            box-shadow: 0 0 20px rgba(0, 238, 255, 0.15);
+        }
+        .skill-card i {
+            font-size: 36px;
+            color: #0ef;
+            margin-bottom: 12px;
+        }
+        .skill-card h5 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .skill-card .tag {
+            font-size: 13px;
+            color: #a0bcdd;
+            margin-top: 6px;
+        }
+
+        /* ----- EXPERIENCE / SERVICES ----- */
+        .experience-section {
+            padding: 60px 9% 80px;
+            background: #0b1f2f;
+        }
+        .exp-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 35px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .exp-item {
+            background: #112233;
+            padding: 30px 24px;
+            border-radius: 20px;
+            border-bottom: 4px solid #0ef;
+            transition: 0.3s;
+        }
+        .exp-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .exp-item h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .exp-item .date {
+            color: #8ab3e0;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .exp-item p {
+            color: #c8d8ec;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .exp-item .badge {
+            display: inline-block;
+            background: #0ef;
+            color: #081b29;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 30px;
+            margin-top: 12px;
+        }
+
+        /* ----- EDUCATION (extra) ----- */
+        .edu-section {
+            padding: 60px 9% 80px;
+        }
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .edu-card {
+            background: #112233;
+            padding: 20px 22px;
+            border-radius: 18px;
+            border-left: 4px solid #0ef;
+        }
+        .edu-card h4 {
+            color: #fff;
+            font-size: 17px;
+        }
+        .edu-card .meta {
+            font-size: 14px;
+            color: #8ab3e0;
+            margin: 4px 0 6px;
+        }
+        .edu-card .grade {
+            color: #b0d0f0;
+            font-size: 14px;
+        }
+
+        /* ----- CONTACT ----- */
+        .contact {
+            padding: 60px 9% 80px;
+            background: #0b1f2f;
+            text-align: center;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 18px;
+            color: #d4e0f0;
+        }
+        .contact-item i {
+            font-size: 30px;
+            color: #0ef;
+        }
+        .contact-item a {
+            color: #d4e0f0;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .contact-item a:hover {
+            color: #0ef;
+        }
+
+        /* ----- FOOTER ----- */
+        .footer {
+            padding: 24px 9%;
+            text-align: center;
+            color: #7a9bcb;
+            border-top: 1px solid #1e3a5f;
+            font-size: 15px;
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 900px) {
+            .home { padding: 110px 5% 40px; flex-direction: column; text-align: center; }
+            .home-content { max-width: 100%; }
+            .home-content h1 { font-size: 42px; }
+            .home-img img { width: 290px; height: 290px; }
+            .navbar a { margin-left: 20px; font-size: 16px; }
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                background: #051129;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 20px 0;
+                text-align: center;
+                backdrop-filter: blur(4px);
+                border-top: 1px solid #1e3a5f;
+            }
+            .navbar.active {
+                display: flex;
+            }
+            .navbar a {
+                margin: 10px 0;
+                font-size: 18px;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .about-grid { grid-template-columns: 1fr; }
+            .home-content h1 { font-size: 36px; }
+            .section-title { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <a href="#" class="logo">Bhavneet Singh<span></span></a>
+    <div class="mobile-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+    <nav class="navbar" id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section class="home" id="home">
+    <div class="home-content">
+        <h3>Hello, I'm</h3>
+        <h1>Bhavneet Singh</h1>
+        <h3>And I'm a <span>Tutor & Educator</span></h3>
+        <p>Highly motivated Tutor with 5+ years of experience. Expertise in Chemistry, Physics, Maths, and competitive exam prep (JEE, NEET). Passionate about student growth and innovative teaching.</p>
+        <div class="home-sci">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div>
+            <a href="#" class="btn-box">Resume</a>
+            <a href="#about" class="btn-box btn-outline">More About Me</a>
+        </div>
+    </div>
+    <div class="home-img">
+        <img src="bhavneet.jpeg">
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="about-content">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <p>I am a dedicated educator with a Master's degree in Chemistry and a B.Ed., committed to fostering academic excellence. Over the past 5 years, I have taught students from class 6 to 12, covering science, mathematics, and English, while also mentoring aspirants for JEE and NEET.</p>
+        <p>My teaching philosophy centers on individualized lesson plans, adaptive methodologies, and using technology to create engaging learning environments. I believe in building strong conceptual foundations and critical thinking skills.</p>
+        <div class="about-grid">
+            <div class="about-card"><h4><i class="fas fa-chalkboard-teacher" style="color:#0ef;margin-right:10px;"></i>5+ Years</h4><p>Experience in tutoring and mentoring students across multiple subjects and competitive exams.</p></div>
+            <div class="about-card"><h4><i class="fas fa-flask" style="color:#0ef;margin-right:10px;"></i>Chemistry Expert</h4><p>M.Sc. Chemistry with a passion for simplifying complex concepts for class 11, 12 & NEET/JEE aspirants.</p></div>
+            <div class="about-card"><h4><i class="fas fa-language" style="color:#0ef;margin-right:10px;"></i>Multilingual</h4><p>Fluent in English, Hindi, Punjabi, and conversational Spanish.</p></div>
+            <div class="about-card"><h4><i class="fas fa-award" style="color:#0ef;margin-right:10px;"></i>Recognized</h4><p>Recipient of Excellence in Education & Teacher of the Year awards.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS (minimal, clean) -->
+<section class="skills-section" id="skills">
+    <h2 class="section-title">My <span>Skills</span></h2>
+    <p class="section-sub">Teaching · Communication · Subject expertise</p>
+    <div class="skills-grid">
+        <div class="skill-card"><i class="fas fa-atom"></i><h5>Chemistry</h5><div class="tag">M.Sc. · NEET/JEE</div></div>
+        <div class="skill-card"><i class="fas fa-calculator"></i><h5>Mathematics</h5><div class="tag">Class 6–12 · Competitive</div></div>
+        <div class="skill-card"><i class="fas fa-microscope"></i><h5>Physics</h5><div class="tag">Class 11–12 · JEE</div></div>
+        <div class="skill-card"><i class="fas fa-book-open"></i><h5>English</h5><div class="tag">Grammar · Literature</div></div>
+        <div class="skill-card"><i class="fas fa-laptop"></i><h5>EdTech</h5><div class="tag">Digital tools · Assessment</div></div>
+        <div class="skill-card"><i class="fas fa-users"></i><h5>Mentoring</h5><div class="tag">Student growth · Leadership</div></div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience-section" id="experience">
+    <h2 class="section-title">Teaching <span>Experience</span></h2>
+    <p class="section-sub">5+ years of dedicated tutoring & mentoring</p>
+    <div class="exp-list">
+        <div class="exp-item">
+            <h3>Private Tutoring</h3>
+            <span class="date">2019 – Present</span>
+            <p>Class 6–8 (all subjects), Class 9–10 (Science, Maths, English), Class 11–12 (Chemistry, Physics). Also guided JEE & NEET aspirants with personalized strategies.</p>
+            <span class="badge">JEE · NEET</span>
+        </div>
+        <div class="exp-item">
+            <h3>Project Handling & Mentoring</h3>
+            <span class="date">2020 – Present</span>
+            <p>Supervised student projects, fostered research-oriented learning, and coordinated academic workshops to enhance practical understanding.</p>
+            <span class="badge">Leadership</span>
+        </div>
+        <div class="exp-item">
+            <h3>Awards & Recognition</h3>
+            <span class="date">2021 · 2022 · 2023</span>
+            <p>Excellence in Education award · Teacher of the Year · District Teacher of the Year for outstanding contributions and student performance.</p>
+            <span class="badge">🏆 Honor</span>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="edu-section" id="education">
+    <h2 class="section-title">Education <span>& Credentials</span></h2>
+    <p class="section-sub">Academic journey & qualifications</p>
+    <div class="edu-grid">
+        <div class="edu-card"><h4>B.Ed.</h4><div class="meta">Sadhbhavna College · PU University</div><div class="grade">Ludhiana, Punjab</div></div>
+        <div class="edu-card"><h4>M.Sc. Chemistry</h4><div class="meta">SCD Govt College · 72%</div><div class="grade">Ludhiana, Punjab</div></div>
+        <div class="edu-card"><h4>B.Sc. Non Medical</h4><div class="meta">GGN Khalsa College · 72%</div><div class="grade">Ludhiana, Punjab</div></div>
+        <div class="edu-card"><h4>12th (CBSE)</h4><div class="meta">GGN Public School · 70%</div><div class="grade">Ludhiana, Punjab</div></div>
+        <div class="edu-card"><h4>10th (CBSE)</h4><div class="meta">GGN Public School · 9.0 CGPA</div><div class="grade">Ludhiana, Punjab</div></div>
+        <div class="edu-card"><h4><i class="fas fa-globe" style="color:#0ef;margin-right:8px;"></i>Languages</h4><div class="meta">English · Hindi · Punjabi · Spanish</div><div class="grade">Fluent</div></div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2 class="section-title">Contact <span>Me</span></h2>
+    <p class="section-sub">Let's connect for teaching, mentoring, or collaboration</p>
+    <div class="contact-info">
+        <div class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+919592633220">+91 95926 33220</a></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:bhavneet12singh@gmail.com">bhavneet12singh@gmail.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Ludhiana, 141008</div>
+    </div>
+    <div style="margin-top: 30px; font-size: 15px; color: #8ab3e0;">
+        <i class="fas fa-clock" style="color:#0ef;"></i> Available for online & in-person sessions
+    </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+    &copy; 2025 Bhavneet Singh · Built with <i class="fas fa-heart" style="color:#0ef;"></i> for education
+</div>
+
+<!-- JS: toggle navbar -->
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('navbar').classList.toggle('active');
+    });
+    // close navbar on link click (mobile)
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navbar').classList.remove('active');
+        });
+    });
+</script>
+</body>
+</html>
